@@ -7,6 +7,10 @@ const bodyParser = require('body-parser');
 const dashboardRoutes = require('./routes/eo/dashboardRoutes');
 const eventRoutes = require('./routes/eo/eventRoutes');
 const profileRoutes = require('./routes/eo/profileRoutes');
+const ticketRoutes = require('./routes/eo/ticketRoutes');
+const ordersRoutes = require('./routes/eo/ordersRoutes');
+const reviewRoutes = require('./routes/eo/reviewRoutes');
+const virtualTicketRoutes = require('./routes/eo/virtualTicketRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,7 +31,7 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/api', authRoutes, eventRoutes, profileRoutes);
+app.use('/api', authRoutes, eventRoutes, profileRoutes, ticketRoutes, ordersRoutes, reviewRoutes, virtualTicketRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
 app.get('/', (req, res) => {
